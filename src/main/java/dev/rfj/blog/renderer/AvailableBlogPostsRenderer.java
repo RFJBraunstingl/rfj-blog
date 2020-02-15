@@ -1,6 +1,6 @@
-package dev.rfj.renderer;
+package dev.rfj.blog.renderer;
 
-import dev.rfj.service.AvailableBlogPostService;
+import dev.rfj.blog.service.AvailableBlogPostService;
 
 public interface AvailableBlogPostsRenderer {
 

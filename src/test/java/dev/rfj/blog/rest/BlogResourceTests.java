@@ -1,6 +1,6 @@
-package dev.rfj.rest;
+package dev.rfj.blog.rest;
 
-import dev.rfj.mock.MockAvailableBlogPostRenderer;
+import dev.rfj.blog.mock.MockAvailableBlogPostRenderer;
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
 

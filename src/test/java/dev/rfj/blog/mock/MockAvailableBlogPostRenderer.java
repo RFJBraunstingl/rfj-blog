@@ -1,7 +1,7 @@
-package dev.rfj.mock;
+package dev.rfj.blog.mock;
 
-import dev.rfj.model.BlogPost;
-import dev.rfj.renderer.AvailableBlogPostsRenderer;
+import dev.rfj.blog.model.BlogPost;
+import dev.rfj.blog.renderer.AvailableBlogPostsRenderer;
 import io.quarkus.test.Mock;
 
 import java.util.Collection;

@@ -1,6 +1,6 @@
-package dev.rfj.renderer.impl;
+package dev.rfj.blog.renderer.impl;
 
-import dev.rfj.renderer.AvailableBlogPostsRenderer;
+import dev.rfj.blog.renderer.AvailableBlogPostsRenderer;
 
 import javax.enterprise.context.ApplicationScoped;
 

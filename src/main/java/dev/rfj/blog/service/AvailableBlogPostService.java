@@ -1,6 +1,6 @@
-package dev.rfj.service;
+package dev.rfj.blog.service;
 
-import dev.rfj.model.BlogPost;
+import dev.rfj.blog.model.BlogPost;
 
 import java.util.List;
 

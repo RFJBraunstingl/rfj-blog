@@ -1,7 +1,7 @@
-package dev.rfj.acceptance;
+package dev.rfj.blog.acceptance;
 
-import dev.rfj.mock.MockAvailableBlogPostService;
-import dev.rfj.model.BlogPost;
+import dev.rfj.blog.mock.MockAvailableBlogPostService;
+import dev.rfj.blog.model.BlogPost;
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.http.ContentType;
 import io.restassured.response.ValidatableResponse;

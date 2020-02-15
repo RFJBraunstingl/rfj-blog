@@ -1,4 +1,4 @@
-package dev.rfj.util;
+package dev.rfj.blog.util;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

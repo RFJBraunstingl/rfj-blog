@@ -1,4 +1,4 @@
-package dev.rfj.model;
+package dev.rfj.blog.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

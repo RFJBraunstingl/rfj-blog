@@ -1,6 +1,6 @@
-package dev.rfj.rest;
+package dev.rfj.blog.rest;
 
-import dev.rfj.renderer.AvailableBlogPostsRenderer;
+import dev.rfj.blog.renderer.AvailableBlogPostsRenderer;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
