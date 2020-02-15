@@ -1,11 +1,15 @@
 package dev.rfj.blog.util;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 
 public class TestUtil {
+
+    public static String getTestResourceAsString(String path) throws IOException {
+        ClassLoader classLoader = TestUtil.class.getClassLoader();
+        File file = new File(classLoader.getResource(path).getFile());
+        return readStream(new FileInputStream(file));
+    }
 
     public static String readStream(InputStream in) throws IOException {
         byte[] data = new byte[1024];
