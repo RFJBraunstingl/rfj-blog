@@ -1,14 +1,18 @@
 package dev.rfj.blog.renderer.impl;
 
-import dev.rfj.blog.renderer.AvailableBlogPostsRenderer;
+import dev.rfj.blog.service.AvailableBlogPostService;
+import io.quarkus.qute.Template;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 
 @ApplicationScoped
-public class DefaultAvailableBlogPostsRenderer implements AvailableBlogPostsRenderer {
+class DefaultAvailableBlogPostsRenderer extends AbstractTemplateAvailableBlogPostsRenderer {
 
-    @Override
-    public String renderAvailableBlogPosts() {
-        return "";
+    @Inject
+    protected DefaultAvailableBlogPostsRenderer(
+            final Template defaultBlogOverview,
+            final AvailableBlogPostService blogPostService) {
+        super(defaultBlogOverview, blogPostService);
     }
 }
