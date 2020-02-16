@@ -1,58 +1,39 @@
 package dev.rfj.blog.renderer.impl;
 
+import dev.rfj.blog.model.BlogPost;
 import dev.rfj.blog.renderer.AvailableBlogPostsRenderer;
-import dev.rfj.blog.service.AvailableBlogPostService;
-import io.quarkus.qute.Engine;
-import io.quarkus.qute.Template;
+import dev.rfj.blog.service.blogpost.AvailableBlogPostService;
+import dev.rfj.blog.themeconfig.ThemeService;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-
-import static dev.rfj.blog.util.StringUtils.isNotBlank;
+import java.util.List;
 
 @ApplicationScoped
 class TemplateAvailableBlogPostsRenderer implements AvailableBlogPostsRenderer {
 
-    private Template template;
     private AvailableBlogPostService blogPostService;
+    private ThemeService themeService;
 
     // dummy constructor for CDI
-    //TemplateAvailableBlogPostsRenderer() {}
-
-    TemplateAvailableBlogPostsRenderer(
-            final String templatePath,
-            final AvailableBlogPostService blogPostService) {
-        this(buildTemplateForPath(templatePath), blogPostService);
-    }
-
-    private static Template buildTemplateForPath(String templatePath) {
-        assert isNotBlank(templatePath);
-        Engine engine = buildTemplateEngine();
-        Template template = engine.parse(templatePath);
-        return template;
-    }
-
-    private static Engine buildTemplateEngine() {
-        return Engine
-                .builder()
-                .addDefaults()
-                .build();
+    TemplateAvailableBlogPostsRenderer() {
     }
 
     @Inject
-    protected TemplateAvailableBlogPostsRenderer(
-            final Template blogOverview,
-            final AvailableBlogPostService blogPostService) {
-        this.template = blogOverview;
+    TemplateAvailableBlogPostsRenderer(
+            final AvailableBlogPostService blogPostService,
+            final ThemeService themeService) {
         this.blogPostService = blogPostService;
+        this.themeService = themeService;
     }
 
     @Override
     public String renderAvailableBlogPosts() {
-        return template
+        List<BlogPost> availableBlogPosts = blogPostService.getAvailableBlogPosts();
+        return themeService.getBlogOverviewTemplate()
                 .data(
                         "blogPosts",
-                        blogPostService.getAvailableBlogPosts()
+                        availableBlogPosts
                 ).render();
     }
 }

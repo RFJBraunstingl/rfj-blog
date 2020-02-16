@@ -1,7 +1,7 @@
 package dev.rfj.blog.mock;
 
 import dev.rfj.blog.model.BlogPost;
-import dev.rfj.blog.service.AvailableBlogPostService;
+import dev.rfj.blog.service.blogpost.AvailableBlogPostService;
 import io.quarkus.test.Mock;
 
 import java.util.*;

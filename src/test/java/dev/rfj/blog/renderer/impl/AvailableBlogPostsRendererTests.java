@@ -1,8 +1,5 @@
 package dev.rfj.blog.renderer.impl;
 
-import dev.rfj.blog.renderer.AvailableBlogPostsRenderer;
-import dev.rfj.blog.service.AvailableBlogPostService;
-import io.quarkus.qute.Template;
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -17,17 +14,10 @@ import static dev.rfj.blog.util.TestUtil.getTestResourceAsString;
 public class AvailableBlogPostsRendererTests {
 
     @Inject
-    private Template blogOverview;
-    @Inject
-    private AvailableBlogPostService blogPostService;
+    private TemplateAvailableBlogPostsRenderer renderer;
 
     @Test
     public void testDefaultOutput() throws IOException {
-        AvailableBlogPostsRenderer renderer = new TemplateAvailableBlogPostsRenderer(
-                blogOverview,
-                blogPostService
-        );
-
         String expectedString = fullTrim(getTestResourceAsString("templates/defaultBlogOverviewParameterized.html"));
         String actualString = fullTrim(renderer.renderAvailableBlogPosts());
         Assertions.assertEquals(expectedString, actualString);

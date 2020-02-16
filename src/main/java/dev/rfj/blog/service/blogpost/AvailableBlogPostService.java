@@ -1,4 +1,4 @@
-package dev.rfj.blog.service;
+package dev.rfj.blog.service.blogpost;
 
 import dev.rfj.blog.model.BlogPost;
 

@@ -1,6 +1,7 @@
 package dev.rfj.blog.rest;
 
 import dev.rfj.blog.renderer.AvailableBlogPostsRenderer;
+import lombok.NoArgsConstructor;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -10,9 +11,10 @@ import javax.ws.rs.Produces;
 import static javax.ws.rs.core.MediaType.TEXT_HTML;
 
 @Path("/blog")
+@NoArgsConstructor // needed by REST assured
 public class BlogResource {
 
-    private final AvailableBlogPostsRenderer blogPostsRenderer;
+    private AvailableBlogPostsRenderer blogPostsRenderer;
 
     @Inject
     public BlogResource(

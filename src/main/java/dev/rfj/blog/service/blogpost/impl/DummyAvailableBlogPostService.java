@@ -1,7 +1,7 @@
-package dev.rfj.blog.service.impl;
+package dev.rfj.blog.service.blogpost.impl;
 
 import dev.rfj.blog.model.BlogPost;
-import dev.rfj.blog.service.AvailableBlogPostService;
+import dev.rfj.blog.service.blogpost.AvailableBlogPostService;
 
 import javax.enterprise.context.ApplicationScoped;
 import java.util.Arrays;
