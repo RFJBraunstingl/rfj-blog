@@ -29,11 +29,6 @@ class ThemeServiceImpl implements ThemeService {
         return theme;
     }
 
-    @Override
-    public Template getBlogOverviewTemplate() {
-        return getActiveTheme().getBlogOverviewTemplate();
-    }
-
     void addAvailableTheme(String name, Theme theme) {
         availableThemes.put(name, theme);
     }

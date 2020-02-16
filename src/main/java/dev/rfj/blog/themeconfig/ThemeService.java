@@ -6,6 +6,4 @@ import io.quarkus.qute.Template;
 public interface ThemeService {
 
     Theme getActiveTheme();
-
-    Template getBlogOverviewTemplate();
 }

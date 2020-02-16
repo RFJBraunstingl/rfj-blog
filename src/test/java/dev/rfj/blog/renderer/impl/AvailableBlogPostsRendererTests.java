@@ -1,20 +1,45 @@
 package dev.rfj.blog.renderer.impl;
 
+import dev.rfj.blog.blogposts.AvailableBlogPostService;
+import dev.rfj.blog.mock.MockAvailableBlogPosts;
+import dev.rfj.blog.model.Theme;
+import dev.rfj.blog.themeconfig.ThemeService;
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
 
 import javax.inject.Inject;
 import java.io.IOException;
 
 import static dev.rfj.blog.util.StringUtils.fullTrim;
 import static dev.rfj.blog.util.TestUtil.getTestResourceAsString;
+import static org.mockito.Mockito.*;
 
 @QuarkusTest
 public class AvailableBlogPostsRendererTests {
 
-    @Inject
+    @Mock
+    private AvailableBlogPostService availableBlogPostService;
+    @Mock
+    private ThemeService themeService;
+    @InjectMocks
     private TemplateAvailableBlogPostsRenderer renderer;
+    @Inject
+    private ThemeService realThemeService;
+
+    @BeforeEach
+    public void setUp() {
+        MockitoAnnotations.initMocks(this);
+        when(availableBlogPostService.getAvailableBlogPosts())
+                .thenReturn(MockAvailableBlogPosts.MOCKED_BLOG_POSTS);
+        when(themeService.getActiveTheme())
+                .thenReturn(realThemeService.getActiveTheme());
+    }
 
     @Test
     public void testDefaultOutput() throws IOException {

@@ -30,7 +30,9 @@ class TemplateAvailableBlogPostsRenderer implements AvailableBlogPostsRenderer {
     @Override
     public String renderAvailableBlogPosts() {
         List<BlogPost> availableBlogPosts = blogPostService.getAvailableBlogPosts();
-        return themeService.getBlogOverviewTemplate()
+        return themeService.
+                getActiveTheme()
+                .getBlogOverviewTemplate()
                 .data(
                         "blogPosts",
                         availableBlogPosts

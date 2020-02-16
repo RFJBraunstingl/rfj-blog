@@ -15,6 +15,6 @@ public class ThemeServiceTests {
 
     @Test
     public void testThatThemeConfigServiceReturnsValidObjects() {
-        assertNotNull(themeService.getBlogOverviewTemplate());
+        assertNotNull(themeService.getActiveTheme());
     }
 }

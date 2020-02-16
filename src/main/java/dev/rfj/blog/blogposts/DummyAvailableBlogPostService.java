@@ -11,7 +11,6 @@ import java.util.List;
 @ApplicationScoped
 public class DummyAvailableBlogPostService implements AvailableBlogPostService {
 
-
     @Override
     public List<BlogPost> getAvailableBlogPosts() {
         return Arrays.asList(

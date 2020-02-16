@@ -1,15 +1,15 @@
 package dev.rfj.blog.mock;
 
 import dev.rfj.blog.model.BlogPost;
-import dev.rfj.blog.blogposts.AvailableBlogPostService;
-import io.quarkus.test.Mock;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.List;
 
 import static java.util.Calendar.*;
 
-@Mock
-public class MockAvailableBlogPostService implements AvailableBlogPostService {
+public class MockAvailableBlogPosts {
 
     public static final List<BlogPost> MOCKED_BLOG_POSTS = new ArrayList<>();
 
@@ -46,10 +46,5 @@ public class MockAvailableBlogPostService implements AvailableBlogPostService {
                         .creationDate(new GregorianCalendar(2018, OCTOBER, 30, 14, 59).getTime())
                         .build()
         );
-    }
-
-    @Override
-    public List<BlogPost> getAvailableBlogPosts() {
-        return MOCKED_BLOG_POSTS;
     }
 }
