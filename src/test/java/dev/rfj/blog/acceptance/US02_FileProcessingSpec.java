@@ -7,12 +7,15 @@ import org.junit.jupiter.api.Test;
  */
 public class US02_FileProcessingSpec {
 
+    private static final String TITLE_FILE_1 = "test-blog-post-one";
+    private static final String TITLE_FILE_2 = "test-blog-post-two";
+    private static final String CONTENT_FILE_1 = "It works!!";
+    private static final String CONTENT_FILE_2 = "Hello world!";
+
     /**
      * For the project, blog post files are stored under {PROJECT_ROOT}/pages/blog-posts/.
      * Speaking in terms of execution context for the running application, it will be the parent of the execution directory.
-     * The <code>System</code> property called "user.dir" presents the path of the execution directory, '..' commonly
-     * refers to the parent directory on all major OSes, thus the application shall pick up all files from the path:
-     * 'System.getProperty("user.dir")/../'
+     * We will create 2 files there and expect those files to be picked up as blog posts.
      */
     @Test
     public void testFileProcessingSpec() {
