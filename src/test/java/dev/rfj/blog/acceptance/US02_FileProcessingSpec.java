@@ -2,10 +2,13 @@ package dev.rfj.blog.acceptance;
 
 import dev.rfj.blog.blogposts.retriever.BlogPostRetrievalService;
 import dev.rfj.blog.model.BlogPost;
+import dev.rfj.blog.testdata.TestBlogPosts;
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
 
 import javax.inject.Inject;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import static dev.rfj.blog.util.CollectionUtils.isEmpty;
@@ -17,11 +20,6 @@ import static org.junit.jupiter.api.Assertions.*;
 @QuarkusTest
 public class US02_FileProcessingSpec {
 
-    private static final String TITLE_FILE_1 = "test-blog-post-one";
-    private static final String TITLE_FILE_2 = "test-blog-post-two";
-    private static final String CONTENT_FILE_1 = "It works!!";
-    private static final String CONTENT_FILE_2 = "Hello world!";
-
     @Inject
     private BlogPostRetrievalService blogPostService;
 
@@ -32,18 +30,18 @@ public class US02_FileProcessingSpec {
      */
     @Test
     public void testFileProcessingSpec() {
+        List<BlogPost> expectedBlogPosts = TestBlogPosts.MOCKED_BLOG_POSTS;
         List<BlogPost> blogPosts = blogPostService.getAvailableBlogPosts();
 
-        assertNotNull(blogPosts);
-        assertFalse(isEmpty(blogPosts));
-        assertEquals(2, blogPosts.size());
+        Collections.sort(expectedBlogPosts);
+        Collections.sort(blogPosts);
 
-        BlogPost blogPostOne = blogPosts.get(0);
-        BlogPost blogPostTwo = blogPosts.get(1);
+        for (int i = 0; i < expectedBlogPosts.size(); i++) {
+            BlogPost expected = expectedBlogPosts.get(i);
+            BlogPost actual = blogPosts.get(i);
 
-        assertEquals(TITLE_FILE_1, blogPostOne.getName());
-        assertEquals(CONTENT_FILE_1, blogPostOne.getText());
-        assertEquals(TITLE_FILE_2, blogPostTwo.getName());
-        assertEquals(CONTENT_FILE_2, blogPostTwo.getText());
+            assertEquals(expected.getName(), actual.getName());
+            assertEquals(expected.getText(), actual.getText());
+        }
     }
 }

@@ -1,6 +1,6 @@
 package dev.rfj.blog.acceptance;
 
-import dev.rfj.blog.mock.MockAvailableBlogPosts;
+import dev.rfj.blog.testdata.TestBlogPosts;
 import dev.rfj.blog.model.BlogPost;
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.http.ContentType;
@@ -37,7 +37,7 @@ public class US01_BlogOverviewUserStorySpec {
                 .contentType(ContentType.HTML);
 
         /* TODO: re-write this using streaming API */
-        for (BlogPost blogPost : MockAvailableBlogPosts.MOCKED_BLOG_POSTS) {
+        for (BlogPost blogPost : TestBlogPosts.MOCKED_BLOG_POSTS) {
             bodyMatcher.body(containsString(blogPost.getName()));
             bodyMatcher.body(containsString(blogPost.getDescription()));
         }
