@@ -5,15 +5,12 @@ body {
 }
 
 .rfj-blog-header {
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 600px;
     background-image: url("image/nasa-unsplash.jpg");
-    margin-left: -10px;
-    margin-top: -10px;
-    margin-bottom: 15px;
+    margin: 0 0 15px;
 }
 
 .undecorated-link {
