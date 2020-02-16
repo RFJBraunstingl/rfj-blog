@@ -51,6 +51,7 @@ public abstract class StringUtils {
         return str
                 .replaceAll("( )", "")
                 .replaceAll("\\t", "")
-                .replaceAll("\\n", "");
+                .replaceAll("\\n", "")
+                .replaceAll("\\r", "");
     }
 }

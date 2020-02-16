@@ -15,7 +15,7 @@ import static dev.rfj.blog.themeconfig.ThemeServiceImpl.DEFAULT_THEME_NAME;
 class DefaultThemeRegistrationBean {
 
     @Inject
-    @ResourcePath("templates/default/blog_overview.html")
+    @ResourcePath("default/blog_overview.html")
     private Template blogOverviewTemplate;
     @Inject
     private ThemeServiceImpl themeService;
