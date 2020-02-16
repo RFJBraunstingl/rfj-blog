@@ -12,7 +12,7 @@ import javax.inject.Inject;
 import static dev.rfj.blog.themeconfig.ThemeServiceImpl.DEFAULT_THEME_NAME;
 
 @ApplicationScoped
-class DefaultThemeRegistrationBean {
+class DefaultThemeRegistrationBean extends ThemeRegistrationBean {
 
     @Inject
     @ResourcePath("default/blog_overview.html")
@@ -21,6 +21,21 @@ class DefaultThemeRegistrationBean {
     ThemeServiceImpl themeService;
 
     DefaultThemeRegistrationBean() {}
+
+    @Override
+    String getThemeName() {
+        return DEFAULT_THEME_NAME;
+    }
+
+    @Override
+    ThemeServiceImpl getThemeService() {
+        return themeService;
+    }
+
+    @Override
+    Template getBlogOverViewTheme() {
+        return blogOverviewTemplate;
+    }
 
     void onStart(@Observes StartupEvent ev) {
         themeService.addAvailableTheme(

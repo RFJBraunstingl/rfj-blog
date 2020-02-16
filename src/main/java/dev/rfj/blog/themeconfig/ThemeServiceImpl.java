@@ -5,6 +5,7 @@ import io.quarkus.qute.Template;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,16 +16,13 @@ class ThemeServiceImpl implements ThemeService {
 
     private final Map<String, Theme> availableThemes = new HashMap<>();
 
-    @ConfigProperty(name = "rfj-blog.theme")
+    @Inject
+    @ConfigProperty(name = "rfj.blog.theme", defaultValue = DEFAULT_THEME_NAME)
     String nameOfActiveTheme;
 
     @Override
     public Theme getActiveTheme() {
         Theme theme = availableThemes.get(nameOfActiveTheme);
-        if (theme != null)
-            return theme;
-
-        theme = availableThemes.get(DEFAULT_THEME_NAME);
 
         assert theme != null;
 
