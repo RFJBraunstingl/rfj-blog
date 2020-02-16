@@ -1,9 +1,8 @@
 package dev.rfj.blog.acceptance;
 
-import dev.rfj.blog.blogposts.AvailableBlogPostService;
+import dev.rfj.blog.blogposts.retriever.BlogPostRetrievalService;
 import dev.rfj.blog.model.BlogPost;
 import io.quarkus.test.junit.QuarkusTest;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import javax.inject.Inject;
@@ -24,7 +23,7 @@ public class US02_FileProcessingSpec {
     private static final String CONTENT_FILE_2 = "Hello world!";
 
     @Inject
-    private AvailableBlogPostService blogPostService;
+    private BlogPostRetrievalService blogPostService;
 
     /**
      * For the project, blog post files are stored under {PROJECT_ROOT}/pages/blog-posts/.

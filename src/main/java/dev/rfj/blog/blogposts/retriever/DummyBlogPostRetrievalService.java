@@ -1,15 +1,14 @@
-package dev.rfj.blog.blogposts;
+package dev.rfj.blog.blogposts.retriever;
 
 import dev.rfj.blog.model.BlogPost;
-import dev.rfj.blog.blogposts.AvailableBlogPostService;
 
 import javax.enterprise.context.ApplicationScoped;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
-@ApplicationScoped
-public class DummyAvailableBlogPostService implements AvailableBlogPostService {
+//@ApplicationScoped inactive
+public class DummyBlogPostRetrievalService implements BlogPostRetrievalService {
 
     @Override
     public List<BlogPost> getAvailableBlogPosts() {
