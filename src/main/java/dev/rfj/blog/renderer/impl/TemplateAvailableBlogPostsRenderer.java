@@ -2,7 +2,7 @@ package dev.rfj.blog.renderer.impl;
 
 import dev.rfj.blog.model.BlogPost;
 import dev.rfj.blog.renderer.AvailableBlogPostsRenderer;
-import dev.rfj.blog.service.blogpost.AvailableBlogPostService;
+import dev.rfj.blog.blogposts.AvailableBlogPostService;
 import dev.rfj.blog.themeconfig.ThemeService;
 
 import javax.enterprise.context.ApplicationScoped;
