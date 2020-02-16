@@ -16,7 +16,7 @@ class ThemeServiceImpl implements ThemeService {
     private final Map<String, Theme> availableThemes = new HashMap<>();
 
     @ConfigProperty(name = "rfj-blog.theme")
-    private String nameOfActiveTheme;
+    String nameOfActiveTheme;
 
     @Override
     public Theme getActiveTheme() {

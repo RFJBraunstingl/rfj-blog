@@ -1,0 +1,57 @@
+body {
+    background: #011627;
+    font-family: 'Open Sans', sans-serif;
+    color: #8DA1B9;
+}
+
+.rfj-blog-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 600px;
+    background-image: url("image/nasa-unsplash.jpg");
+    margin-left: -10px;
+    margin-top: -10px;
+    margin-bottom: 15px;
+}
+
+.undecorated-link {
+    text-decoration: none;
+}
+
+.blog-post-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.blog-post {
+    padding: 15px;
+    margin: 15px;
+    min-width: 200px;
+    background: #0023AA;
+    border-radius: 5px;
+    color: #8DA1B9;
+    text-decoration: none;
+}
+
+.blog-post-heading {
+    border-bottom: 1px solid;
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+@media only screen and (max-width: 660px) {
+    .blog-post {
+        width: 1fr;
+        align-self: stretch;
+    }
+}
+
+@media only screen and (min-width: 660px) {
+    .blog-post {
+        min-width: 600px;
+    }
+}

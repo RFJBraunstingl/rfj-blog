@@ -3,12 +3,23 @@
 <html lang="en">
 <meta charset="UTF-8">
 <head>
-    <title>Welcome</title>
+    <title>RfjBlog</title>
+    <link rel="stylesheet" type="text/css" href="templates/default/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
-{#for blogPost in blogPosts}
-    <h2>{blogPost.name}</h2>
-    <p>{blogPost.description}</p>
-{/for}
+<div class="rfj-blog-header">
+    <h1>Rfj Blog</h1>
+</div>
+<div class="blog-post-container">
+    {#for blogPost in blogPosts}
+    <a class="undecorated-link blog-post" href="/blog"> <!-- put "/blog/{blogPost.name}" here -->
+        <div>
+            <h2 class="blog-post-heading">{blogPost.name}</h2>
+            <p>{blogPost.description}</p>
+        </div>
+    </a>
+    {/for}
+</div>
 </body>
 </html>
