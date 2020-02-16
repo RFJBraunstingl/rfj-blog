@@ -1,0 +1,14 @@
+{@java.util.List<@dev.rfj.model.BlogPost> blogPosts}
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<head>
+    <title>Welcome</title>
+</head>
+<body>
+{#for blogPost in blogPosts}
+    <h2>{blogPost.name}</h2>
+    <p>{blogPost.description}</p>
+{/for}
+</body>
+</html>
