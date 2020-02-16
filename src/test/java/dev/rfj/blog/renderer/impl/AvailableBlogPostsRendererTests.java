@@ -1,7 +1,7 @@
 package dev.rfj.blog.renderer.impl;
 
 import dev.rfj.blog.blogposts.retriever.BlogPostRetrievalService;
-import dev.rfj.blog.mock.MockAvailableBlogPosts;
+import dev.rfj.blog.testdata.TestBlogPosts;
 import dev.rfj.blog.themeconfig.ThemeService;
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Assertions;
@@ -34,7 +34,7 @@ public class AvailableBlogPostsRendererTests {
     public void setUp() {
         MockitoAnnotations.initMocks(this);
         when(blogPostRetrievalService.getAvailableBlogPosts())
-                .thenReturn(MockAvailableBlogPosts.MOCKED_BLOG_POSTS);
+                .thenReturn(TestBlogPosts.MOCKED_BLOG_POSTS);
         when(themeService.getActiveTheme())
                 .thenReturn(realThemeService.getActiveTheme());
     }
