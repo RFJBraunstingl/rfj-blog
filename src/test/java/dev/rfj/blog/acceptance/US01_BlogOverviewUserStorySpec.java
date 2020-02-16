@@ -10,8 +10,11 @@ import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.containsString;
 
+/*
+ * As a user, I want to be presented with a list of available blog posts rendered as html when going to the site
+ */
 @QuarkusTest
-public class As_a_user_I_want_to_be_presented_with_a_list_of_available_blog_posts_rendered_as_html_when_going_to_the_site_Tests {
+public class US01_BlogOverviewUserStorySpec {
 
     /*
      * As a user, I want to be presented with a list of available blog posts rendered as HTML when visiting the site
