@@ -15,16 +15,16 @@ import static java.util.stream.Collectors.toList;
 
 /**
  * The directory of the files to be parsed as blog posts shall be defined as
- * - the directory 'blog-posts' in the directory 'pages' in the parent directory of the execution dir
+ * - the directory 'blog-posts' in the directory 'pages' in the execution dir
  *
- * The <code>System</code> property called "user.dir" presents the path of the execution directory, '..' commonly
- * refers to the parent directory on all major OSes, thus the application shall pick up all files from the path:
- * 'System.getProperty("user.dir")/../pages/blog-posts/'
+ * The <code>System</code> property called "user.dir" presents the path of the execution directory, thus the application
+ * shall pick up all files from the path:
+ * 'System.getProperty("user.dir")/pages/blog-posts/'
  */
 @ApplicationScoped
 public class FileParsingBlogPostRetrievalService implements BlogPostRetrievalService {
 
-    private static final String PATH_TO_BLOG_POST_DIR = System.getProperty("user.dir") + "/../pages/blog-posts/";
+    private static final String PATH_TO_BLOG_POST_DIR = System.getProperty("user.dir") + "/pages/blog-posts/";
 
     @Override
     public List<BlogPost> getAvailableBlogPosts() {
