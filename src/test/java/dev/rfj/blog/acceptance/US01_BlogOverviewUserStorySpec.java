@@ -17,7 +17,6 @@ import static org.hamcrest.Matchers.containsString;
 public class US01_BlogOverviewUserStorySpec {
 
     /*
-     * As a user, I want to be presented with a list of available blog posts rendered as HTML when visiting the site
      * a blog entry consists of
      * - name
      * - description
