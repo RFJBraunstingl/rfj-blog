@@ -16,9 +16,9 @@ class DefaultThemeRegistrationBean {
 
     @Inject
     @ResourcePath("default/blog_overview.html")
-    private Template blogOverviewTemplate;
+    Template blogOverviewTemplate;
     @Inject
-    private ThemeServiceImpl themeService;
+    ThemeServiceImpl themeService;
 
     DefaultThemeRegistrationBean() {}
 

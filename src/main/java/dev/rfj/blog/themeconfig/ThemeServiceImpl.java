@@ -2,11 +2,9 @@ package dev.rfj.blog.themeconfig;
 
 import dev.rfj.blog.model.Theme;
 import io.quarkus.qute.Template;
-import io.quarkus.qute.api.ResourcePath;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,10 +14,6 @@ class ThemeServiceImpl implements ThemeService {
     static final String DEFAULT_THEME_NAME = "default";
 
     private final Map<String, Theme> availableThemes = new HashMap<>();
-
-    @Inject
-    @ResourcePath("test/blog_overview.html")
-    private Template blogOverviewTemplate;
 
     @ConfigProperty(name = "rfj-blog.theme")
     private String nameOfActiveTheme;
