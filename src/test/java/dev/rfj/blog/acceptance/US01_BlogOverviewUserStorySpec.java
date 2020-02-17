@@ -7,6 +7,7 @@ import io.restassured.http.ContentType;
 import io.restassured.response.ValidatableResponse;
 import org.junit.jupiter.api.Test;
 
+import static dev.rfj.blog.util.StringUtils.isNotBlank;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.containsString;
 
@@ -37,9 +38,12 @@ public class US01_BlogOverviewUserStorySpec {
                 .contentType(ContentType.HTML);
 
         /* TODO: re-write this using streaming API */
-        for (BlogPost blogPost : TestBlogPosts.MOCKED_BLOG_POSTS) {
+        for (BlogPost blogPost : TestBlogPosts.FILE_SYSTEM_BLOG_POSTS) {
             bodyMatcher.body(containsString(blogPost.getName()));
-            bodyMatcher.body(containsString(blogPost.getDescription()));
+
+            String description = blogPost.getDescription();
+            if (isNotBlank(description))
+                bodyMatcher.body(containsString(description));
         }
     }
 }

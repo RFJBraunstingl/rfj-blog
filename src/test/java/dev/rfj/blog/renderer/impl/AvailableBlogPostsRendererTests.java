@@ -34,7 +34,7 @@ public class AvailableBlogPostsRendererTests {
     public void setUp() {
         MockitoAnnotations.initMocks(this);
         when(blogPostRetrievalService.getAvailableBlogPosts())
-                .thenReturn(TestBlogPosts.MOCKED_BLOG_POSTS);
+                .thenReturn(TestBlogPosts.SIMPLE_REDUCED_BLOG_POSTS);
         when(themeService.getActiveTheme())
                 .thenReturn(realThemeService.getActiveTheme());
     }

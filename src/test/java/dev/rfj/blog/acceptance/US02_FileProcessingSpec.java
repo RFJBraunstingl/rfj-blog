@@ -7,11 +7,10 @@ import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
 
 import javax.inject.Inject;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-import static dev.rfj.blog.util.CollectionUtils.isEmpty;
+import static dev.rfj.blog.util.StringUtils.fullTrim;
 import static org.junit.jupiter.api.Assertions.*;
 
 /*
@@ -30,7 +29,7 @@ public class US02_FileProcessingSpec {
      */
     @Test
     public void testFileProcessingSpec() {
-        List<BlogPost> expectedBlogPosts = TestBlogPosts.MOCKED_BLOG_POSTS;
+        List<BlogPost> expectedBlogPosts = TestBlogPosts.FILE_SYSTEM_BLOG_POSTS;
         List<BlogPost> blogPosts = blogPostService.getAvailableBlogPosts();
 
         Collections.sort(expectedBlogPosts);
@@ -41,7 +40,7 @@ public class US02_FileProcessingSpec {
             BlogPost actual = blogPosts.get(i);
 
             assertEquals(expected.getName(), actual.getName());
-            assertEquals(expected.getText(), actual.getText());
+            assertEquals(fullTrim(expected.getText()), fullTrim(actual.getText()));
         }
     }
 }
