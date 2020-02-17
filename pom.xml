@@ -58,12 +58,7 @@
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-resteasy-qute</artifactId>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.jetbrains/markdown -->
-        <dependency>
-            <groupId>org.jetbrains</groupId>
-            <artifactId>markdown</artifactId>
-            <version>0.1.25</version>
-        </dependency>
+
         <!-- https://github.com/atlassian/commonmark-java -->
         <dependency>
             <groupId>com.atlassian.commonmark</groupId>
