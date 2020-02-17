@@ -11,7 +11,9 @@ import java.io.*;
 @ApplicationScoped
 class FileBlogPostParser {
 
-    private final MarkdownHtmlConversionAdapter markdownHtmlConverter;
+    private MarkdownHtmlConversionAdapter markdownHtmlConverter;
+
+    FileBlogPostParser() {}
 
     @Inject
     FileBlogPostParser(MarkdownHtmlConversionAdapter markdownHtmlConverter) {

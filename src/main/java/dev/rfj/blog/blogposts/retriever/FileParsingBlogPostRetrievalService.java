@@ -27,7 +27,9 @@ public class FileParsingBlogPostRetrievalService implements BlogPostRetrievalSer
 
     private static final String PATH_TO_BLOG_POST_DIR = System.getProperty("user.dir") + "/pages/blog-posts/";
 
-    private final FileBlogPostParser fileBlogPostParser;
+    private FileBlogPostParser fileBlogPostParser;
+
+    FileParsingBlogPostRetrievalService() {}
 
     @Inject
     public FileParsingBlogPostRetrievalService(
