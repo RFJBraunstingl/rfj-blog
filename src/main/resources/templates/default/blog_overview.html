@@ -14,10 +14,8 @@
 <div class="blog-post-container">
     {#for blogPost in blogPosts}
     <a class="undecorated-link blog-post" href="/blog"> <!-- put "/blog/{blogPost.name}" here -->
-        <div>
             <h2 class="blog-post-heading">{blogPost.name}</h2>
-            <p>{blogPost.description}</p>
-        </div>
+            <p>{blogPost.description.raw}</p>
     </a>
     {/for}
 </div>
