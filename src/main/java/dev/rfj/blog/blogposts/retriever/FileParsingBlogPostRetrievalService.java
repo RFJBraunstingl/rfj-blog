@@ -3,6 +3,7 @@ package dev.rfj.blog.blogposts.retriever;
 import dev.rfj.blog.model.BlogPost;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -26,6 +27,14 @@ public class FileParsingBlogPostRetrievalService implements BlogPostRetrievalSer
 
     private static final String PATH_TO_BLOG_POST_DIR = System.getProperty("user.dir") + "/pages/blog-posts/";
 
+    private final FileBlogPostParser fileBlogPostParser;
+
+    @Inject
+    public FileParsingBlogPostRetrievalService(
+            final FileBlogPostParser fileBlogPostParser) {
+        this.fileBlogPostParser = fileBlogPostParser;
+    }
+
     @Override
     public List<BlogPost> getAvailableBlogPosts() {
         try (Stream<Path> paths = Files.walk(Paths.get(PATH_TO_BLOG_POST_DIR))) {
@@ -34,7 +43,7 @@ public class FileParsingBlogPostRetrievalService implements BlogPostRetrievalSer
                     .filter(Files::isReadable)
                     .filter(Files::isRegularFile)
                     .map(Path::toFile)
-                    .map(FileBlogPostParser::parseFile)
+                    .map(fileBlogPostParser::parseFile)
                     .collect(toList());
 
         } catch (IOException e) {

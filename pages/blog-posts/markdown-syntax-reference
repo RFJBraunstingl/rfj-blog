@@ -1,0 +1,68 @@
+# Markdown syntax reference
+
+## headings
+
+# H1
+## H2
+### H3
+#### H4
+##### H5
+###### H6
+
+## italic
+*italic*
+_also italic_
+
+## bold
+**bold**
+__also bold__
+
+## both
+**_bold and italic_**
+
+## strike through
+~~strikethrough~~
+
+## ordered lists
+1. first element in ordered list
+2. second element in ordered list
+1. third element in ordered list
+
+## unordered lists
+* unordered list option 1
++ unordered list option 2
+- unordered list option 3
+
+## links
+[this is a link to google](https://www.google.com)
+
+## images
+![alt text](https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png)
+
+## code and syntax
+this is `inline` block
+
+```
+<
+ >
+```
+
+## tables
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+
+## block quotes
+> block quotes
+> are quotes
+> - rfj, 2020
+
+## horizontal line
+one:
+---
+two:
+***
+three:
+___

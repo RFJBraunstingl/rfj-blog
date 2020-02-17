@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
-//@ApplicationScoped inactive
+//@ApplicationScoped
 public class DummyBlogPostRetrievalService implements BlogPostRetrievalService {
 
     @Override

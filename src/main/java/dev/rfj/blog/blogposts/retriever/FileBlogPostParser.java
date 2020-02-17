@@ -1,32 +1,34 @@
 package dev.rfj.blog.blogposts.retriever;
 
+import dev.rfj.blog.adapter.markdown.MarkdownHtmlConversionAdapter;
 import dev.rfj.blog.model.BlogPost;
 import dev.rfj.blog.util.StreamUtils;
 
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import java.io.*;
 
+@ApplicationScoped
 class FileBlogPostParser {
 
-    private final File file;
+    private final MarkdownHtmlConversionAdapter markdownHtmlConverter;
 
-    static BlogPost parseFile(File file) {
-        return new FileBlogPostParser(file).parse();
+    @Inject
+    FileBlogPostParser(MarkdownHtmlConversionAdapter markdownHtmlConverter) {
+        this.markdownHtmlConverter = markdownHtmlConverter;
     }
 
-    private FileBlogPostParser(File file) {
-        this.file = file;
-    }
-
-    private BlogPost parse() {
+    public BlogPost parseFile(File file) {
         try (InputStream fileInputStream = new FileInputStream(file)) {
             String fileName = file.getName();
             String fileContent = StreamUtils.readStream(fileInputStream);
+            String fileContentAsHtml = markdownHtmlConverter.convertMarkdownToHtml(fileContent);
 
             return BlogPost.builder()
                     .name(fileName)
                     // TODO change the description as soon as adding meta data support!
-                    .description(fileContent)
-                    .text(fileContent)
+                    .description(fileContentAsHtml)
+                    .text(fileContentAsHtml)
                     .build();
         } catch (FileNotFoundException e) {
             throw new IllegalStateException("Could not read the file to be parsed, this should not happen!");
