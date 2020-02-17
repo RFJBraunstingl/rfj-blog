@@ -37,13 +37,14 @@ public class US01_BlogOverviewUserStorySpec {
                 .statusCode(200)
                 .contentType(ContentType.HTML);
 
-        /* TODO: re-write this using streaming API */
-        for (BlogPost blogPost : TestBlogPosts.FILE_SYSTEM_BLOG_POSTS) {
-            bodyMatcher.body(containsString(blogPost.getName()));
+        TestBlogPosts.FILE_SYSTEM_BLOG_POSTS.forEach(
+                blogPost -> {
+                    bodyMatcher.body(containsString(blogPost.getName()));
 
-            String description = blogPost.getDescription();
-            if (isNotBlank(description))
-                bodyMatcher.body(containsString(description));
-        }
+                    String description = blogPost.getDescription();
+                    if (isNotBlank(description))
+                        bodyMatcher.body(containsString(description));
+                }
+        );
     }
 }
