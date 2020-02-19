@@ -2,11 +2,13 @@ package dev.rfj.blog.themeconfig;
 
 import io.quarkus.qute.Template;
 import io.quarkus.qute.api.ResourcePath;
+import lombok.NoArgsConstructor;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
 @ApplicationScoped
+@NoArgsConstructor
 class TestThemeRegistrationBean extends ThemeRegistrationBean {
 
     @Inject

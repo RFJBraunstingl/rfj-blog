@@ -1,7 +1,7 @@
 package dev.rfj.blog.themeconfig;
 
 import dev.rfj.blog.model.Theme;
-import io.quarkus.qute.Template;
+import lombok.NoArgsConstructor;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @ApplicationScoped
+@NoArgsConstructor
 class ThemeServiceImpl implements ThemeService {
 
     static final String DEFAULT_THEME_NAME = "default";

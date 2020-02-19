@@ -1,5 +1,6 @@
 package dev.rfj.blog.adapter.markdown;
 
+import lombok.NoArgsConstructor;
 import org.commonmark.Extension;
 import org.commonmark.ext.autolink.AutolinkExtension;
 import org.commonmark.ext.gfm.strikethrough.StrikethroughExtension;
@@ -13,6 +14,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @ApplicationScoped
+@NoArgsConstructor
 public class CommonMarkMarkdownHtmlConversionAdapter implements MarkdownHtmlConversionAdapter {
 
     private static final List<Extension> EXTENSION = Arrays.asList(

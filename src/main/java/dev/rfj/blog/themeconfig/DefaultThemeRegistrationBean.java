@@ -4,6 +4,7 @@ import dev.rfj.blog.model.Theme;
 import io.quarkus.qute.Template;
 import io.quarkus.qute.api.ResourcePath;
 import io.quarkus.runtime.StartupEvent;
+import lombok.NoArgsConstructor;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Observes;
@@ -12,6 +13,7 @@ import javax.inject.Inject;
 import static dev.rfj.blog.themeconfig.ThemeServiceImpl.DEFAULT_THEME_NAME;
 
 @ApplicationScoped
+@NoArgsConstructor
 class DefaultThemeRegistrationBean extends ThemeRegistrationBean {
 
     @Inject
@@ -19,8 +21,6 @@ class DefaultThemeRegistrationBean extends ThemeRegistrationBean {
     Template blogOverviewTemplate;
     @Inject
     ThemeServiceImpl themeService;
-
-    DefaultThemeRegistrationBean() {}
 
     @Override
     String getThemeName() {

@@ -1,6 +1,7 @@
 package dev.rfj.blog.blogposts.retriever;
 
 import dev.rfj.blog.model.BlogPost;
+import lombok.NoArgsConstructor;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -23,13 +24,12 @@ import static java.util.stream.Collectors.toList;
  * 'System.getProperty("user.dir")/pages/blog-posts/'
  */
 @ApplicationScoped
+@NoArgsConstructor
 public class FileParsingBlogPostRetrievalService implements BlogPostRetrievalService {
 
     private static final String PATH_TO_BLOG_POST_DIR = System.getProperty("user.dir") + "/pages/blog-posts/";
 
     private FileBlogPostParser fileBlogPostParser;
-
-    FileParsingBlogPostRetrievalService() {}
 
     @Inject
     public FileParsingBlogPostRetrievalService(

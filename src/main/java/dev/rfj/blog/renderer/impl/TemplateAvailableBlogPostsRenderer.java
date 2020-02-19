@@ -4,20 +4,18 @@ import dev.rfj.blog.model.BlogPost;
 import dev.rfj.blog.renderer.AvailableBlogPostsRenderer;
 import dev.rfj.blog.blogposts.retriever.BlogPostRetrievalService;
 import dev.rfj.blog.themeconfig.ThemeService;
+import lombok.NoArgsConstructor;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import java.util.List;
 
 @ApplicationScoped
+@NoArgsConstructor
 class TemplateAvailableBlogPostsRenderer implements AvailableBlogPostsRenderer {
 
     private BlogPostRetrievalService blogPostService;
     private ThemeService themeService;
-
-    // dummy constructor for CDI
-    TemplateAvailableBlogPostsRenderer() {
-    }
 
     @Inject
     TemplateAvailableBlogPostsRenderer(

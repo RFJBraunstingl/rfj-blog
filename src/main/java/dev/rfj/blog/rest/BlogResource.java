@@ -11,7 +11,7 @@ import javax.ws.rs.Produces;
 import static javax.ws.rs.core.MediaType.TEXT_HTML;
 
 @Path("/blog")
-@NoArgsConstructor // needed by REST assured
+@NoArgsConstructor
 public class BlogResource {
 
     private AvailableBlogPostsRenderer blogPostsRenderer;

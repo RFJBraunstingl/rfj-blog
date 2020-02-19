@@ -3,17 +3,17 @@ package dev.rfj.blog.blogposts.retriever;
 import dev.rfj.blog.adapter.markdown.MarkdownHtmlConversionAdapter;
 import dev.rfj.blog.model.BlogPost;
 import dev.rfj.blog.util.StreamUtils;
+import lombok.NoArgsConstructor;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import java.io.*;
 
 @ApplicationScoped
+@NoArgsConstructor
 class FileBlogPostParser {
 
     private MarkdownHtmlConversionAdapter markdownHtmlConverter;
-
-    FileBlogPostParser() {}
 
     @Inject
     FileBlogPostParser(MarkdownHtmlConversionAdapter markdownHtmlConverter) {
