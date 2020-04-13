@@ -20,6 +20,7 @@
         <quarkus.platform.version>1.2.0.Final</quarkus.platform.version>
         <surefire-plugin.version>2.22.2</surefire-plugin.version>
         <commonmark.version>0.14.0</commonmark.version>
+        <cucumber.version>5.6.0</cucumber.version>
     </properties>
 
     <dependencyManagement>
@@ -111,6 +112,20 @@
             <artifactId>groovy-all</artifactId>
             <version>2.5.4</version>
             <type>pom</type>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- cucumber -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>${cucumber.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
