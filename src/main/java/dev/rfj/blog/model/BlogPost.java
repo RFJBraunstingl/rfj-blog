@@ -5,7 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import static dev.rfj.blog.util.StringUtils.isBlank;
 
@@ -18,7 +18,7 @@ public class BlogPost implements Comparable<BlogPost> {
     private String name;
     private String description;
     private String text;
-    private Date creationDate;
+    private LocalDateTime creationDate;
 
     // TODO this is good for now, but should be written properly
     @Override
